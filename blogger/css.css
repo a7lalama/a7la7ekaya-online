@@ -1,0 +1,625 @@
+
+/* <![CDATA[ */ /* Needed for XML parsing */
+/*-----------------------------------------------
+Blogger Template Style
+Name:     a7la7ekaya
+Designer: a7la7ekaya
+URL:      https://www.a7la7ekaya.online/
+Year:     2015 (Modified 2024 for Color Switching)
+----------------------------------------------- */
+
+/* --- :root CSS Variables Definition --- */
+:root {
+  /* الألوان الافتراضية - طابقها مع ألوان القالب الأصلية */
+  --main-color: #446FAA; /* اللون الأساسي */
+  --sub-color: #444444;  /* اللون الفرعي */
+  --hocolor: #FC5400;   /* اللون الثانوي (Hover/Accent) */
+  --link-color: #3e5b7e; /* لون الروابط */
+  --border-color: #cccccc; /* لون الحدود */
+  --text-color: #555;    /* لون النص الأساسي */
+  --bg-color: #ffffff;   /* لون الخلفية الأساسي */
+  --bg-body-pattern: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKAyB7D4CXsn2lE8KW_dAJE_vBSKF1jmjMuhOCMT6MSwoIdjGTidPRm3KVNdvt5MtTjyI8G_a8kC6Azd0nKJrjFmqV8tgdsBjL-ReGhkK52qb1U1oEYBwXfW2JPCL-eCSdeLKQbMlTUQk/s160-Ic42/cream_pixels.png"); /* خلفية الجسم */
+  --header-bg-color: #f8f8f8; /* خلفية الهيدر */
+  --widget-bg-color: #ffffff; /* خلفية الودجات */
+  --widget-border-color: var(--border-color);
+  --menu-bg-color: var(--main-color); /* خلفية القائمة */
+  --menu-text-color: #ffffff;
+  --footer-credit-bg: var(--main-color);
+  --footer-credit-text: #ffffff;
+  --code-bg: #f8f9fa;
+  --code-text: #202124;
+  --code-border: #dadce0;
+  --code-footer-bg: #f1f3f4;
+
+  /* يمكنك إضافة متغيرات أخرى حسب الحاجة لألوان محددة في القالب */
+}
+
+/* --- Dark Mode Overrides --- */
+/* *** هام جداً: يجب عليك ملء هذا القسم بقواعد CSS شاملة للوضع الداكن *** */
+body.dark-mode {
+  --main-color: #5a8ed3; /* مثال: تعديل الألوان للوضع الداكن */
+  --sub-color: #bbbbbb;
+  --hocolor: #ff7a40;
+  --link-color: #79a6d4;
+  --border-color: #444444;
+  --text-color: #e0e0e0;
+  --bg-color: #212121;
+  --bg-body-pattern: none; /* إزالة النقشة */
+  --header-bg-color: #1a1a1a;
+  --widget-bg-color: #2c2c2c;
+  --widget-border-color: #444;
+  --menu-text-color: #e0e0e0;
+  --footer-credit-text: #e0e0e0;
+  --code-bg: #2a2a2a;
+  --code-text: #d0d0d0;
+  --code-border: #555555;
+  --code-footer-bg: #333333;
+
+  /* أضف المزيد من القواعد لتغطية كل عناصر القالب */
+  background: var(--bg-color); /* تغيير خلفية الجسم الرئيسية */
+
+  .post-home,
+  .post,
+  .comments,
+  #sidebar .widget,
+  .side-taps .widget,
+  #blog-pager,
+  .firstad,
+  .adsunderf span {
+    background-color: var(--widget-bg-color);
+    box-shadow: 0 0 0 1px var(--widget-border-color);
+    color: var(--text-color);
+  }
+
+  #header-wrapper {
+    background-color: var(--header-bg-color);
+    border-bottom-color: var(--border-color);
+  }
+
+  .header h1, .header h1 a, .description span { color: var(--text-color); }
+
+  a { color: var(--link-color); }
+  a:hover { color: var(--hocolor); }
+
+  #main-menu, .smallogo, .t-menu a, #menubtn + label span::before, #shbtn + label span::before { background-color: var(--menu-bg-color); color: var(--menu-text-color); }
+  #menubtn:checked + label span::before { background-color: var(--hocolor); }
+  #drop a { background-color: var(--menu-bg-color); color: var(--menu-text-color); border-bottom-color: rgba(255, 255, 255, 0.1); }
+  #drop a:hover { background-color: var(--sub-color); }
+  #drop::before { color: var(--menu-bg-color); }
+  #search-text { background-color: var(--sub-color); color: var(--menu-text-color); }
+  #shbtn:checked + label span::before { background-color: var(--sub-color); }
+
+  .flabels a, .andlabel a { background-color: var(--main-color); color: var(--menu-text-color); }
+  .flabels a:hover, .andlabel a:hover { background-color: var(--sub-color); }
+
+  .comment-bubble { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .comment-bubble:hover { background-color: var(--main-color); }
+  .comment-bubble::after { color: var(--sub-color); }
+  .comment-bubble:hover::after { color: var(--main-color); }
+
+  .post h2 { background-color: var(--main-color); box-shadow: 0 0 0 4px var(--main-color); color: var(--menu-text-color); border-color: var(--widget-bg-color); }
+  .post h3 { background-color: #3a3a3a; border-bottom-color: var(--hocolor); color: var(--text-color); }
+  .post h4 { color: var(--text-color); }
+  .post h4::before { color: #6bc786; } /* تعديل لون أيقونة H4 إذا لزم الأمر */
+
+  blockquote { background-color: #3a3a3a !important; color: var(--text-color) !important; }
+  blockquote::before { background-color: var(--main-color); color: var(--menu-text-color); }
+
+  .post ol li { background-color: #3a3a3a; border-bottom-color: #555; }
+  .post ol li:before { background-color: var(--main-color); color: var(--menu-text-color); }
+  .post ol li:after { border-color: transparent var(--main-color) transparent transparent; }
+
+  .titlesshar { background-color: #3a3a3a; }
+  .relatedtit { background-color: var(--main-color); color: var(--menu-text-color); }
+  .relatedtit::after { color: var(--main-color); }
+
+  .sharek { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .sharek::before { color: var(--sub-color); }
+  .fotshare li a:hover { box-shadow: 0 80px 1px #000 inset; } /* يمكن تعديل لون الظل */
+  .fotshare .fa.fa-facebook::after { color: var(--sub-color); }
+
+  .utitles { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .utitles::after { color: var(--sub-color); }
+  .posturls input { background-color: var(--widget-bg-color); color: var(--text-color); border-color: var(--border-color); }
+  .urls h5 { color: var(--text-color); border-bottom-color: var(--border-color); }
+  .urls h6 { background-color: #3a3a3a; border-color: #555; color: var(--sub-color); }
+
+  .cnmu-pager strong { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .cnmu-pager .older-link strong { background-color: var(--main-color); }
+  .cnmu-pager li:hover strong { background-color: var(--hocolor); }
+  .cnmu-pager span { color: var(--sub-color) !important; }
+  .cnmu-pager .previous span { background-color: #3a3a3a; }
+
+  .comments h4 { background-color: var(--main-color); color: var(--menu-text-color); }
+  .avatar-image-container { background-color: var(--widget-bg-color); border-color: #555; }
+  .comment-header { background-color: #3a3a3a; }
+  .comments .user, .comments .user a { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .user.blog-author a { background-color: var(--main-color); color: var(--menu-text-color); }
+  .user.blog-author a::after { background-color: var(--hocolor); }
+  .comment .datetime a { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .comment-content { color: var(--text-color); }
+  .comment-actions a { background-color: var(--main-color); color: var(--menu-text-color); }
+  .comment-actions a:hover { background-color: var(--hocolor); }
+  .comment-thread.inline-thread { background-color: #252525; box-shadow: 0 0 1px #444 inset; }
+  .comments .item-control a::before { background-color: var(--hocolor); }
+  .continue a, .comment-replies .continue a, .comment-replies .continue { background-color: var(--sub-color); color: #aaa; }
+  .commentmesg { background-color: #3a3a3a; box-shadow: 0 0 1px #555 inset; color: var(--text-color); }
+  .commentmesg b { background-color: var(--sub-color); }
+  .commentmesg a { color: var(--hocolor); }
+  #comment-editor { background-color: #252525; box-shadow: 0 0 1px #444 inset; }
+
+  .tabs-widget { background-color: #111; }
+  .tabs-widget li a { color: var(--menu-text-color); }
+  .tabs-widget li a:hover, .tabs-widget li a.tabs-widget-current { background-color: var(--main-color); }
+  .tabs-widget-current::after { color: var(--main-color); }
+
+  #sidebar h2 { background-color: var(--main-color); color: var(--menu-text-color); }
+  #sidebar h2::before { background-color: var(--hocolor); }
+  #sidebar h2::after { color: var(--main-color); }
+
+  .popthumbcont { border-color: #555; }
+  .poplink::before { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .poplink::after { background-color: var(--hocolor); color: var(--menu-text-color); }
+
+  .Label li a, .Label li .labename { background-color: var(--main-color); color: var(--menu-text-color); }
+  .Label li a:hover { background-color: #555; }
+  .Label li .labename { background-color: #555 !important; }
+  .label-count { background-color: var(--sub-color); color: var(--menu-text-color); }
+
+  .label-size a, .label-size span { border-color: var(--sub-color); box-shadow: 0 0 0 2px var(--widget-bg-color) inset; }
+  /* ألوان السحابة قد تحتاج لتعديل للتباين */
+
+  .LinkList li a { background-color: var(--sub-color); color: var(--menu-text-color); }
+  .LinkList li a:hover { background-color: var(--hocolor); }
+
+  .BlogArchive select { background-color: var(--widget-bg-color); color: var(--text-color); border-color: var(--border-color); }
+
+  #blog-pager { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); }
+  .blog-pager-newer-link, .blog-pager-older-link, .showpageOf { border-color: var(--widget-border-color); }
+  .pagecurrent { background-color: var(--hocolor); }
+  .pagesn a, .frnum a, .nextpage a { background-color: var(--main-color); color: var(--menu-text-color); }
+  .firstnum a, .lastnum a, .firstpage a, .prevnav a, .lastpage a { background-color: var(--sub-color); color: var(--menu-text-color); }
+
+  .credit { background-color: var(--footer-credit-bg); color: var(--footer-credit-text); }
+
+  /* تنسيق مربع الكود في الوضع الداكن */
+  .code-block-container-enhanced { border-color: var(--code-border); }
+  .code-block-container-enhanced pre { background-color: var(--code-bg); color: var(--code-text); }
+  .code-block-footer-enhanced { background-color: var(--code-footer-bg); border-top-color: var(--code-border); }
+  .code-block-footer-enhanced button { border-color: var(--code-border); color: var(--text-color); }
+  .code-block-footer-enhanced button:hover { background-color: #4a4a4a; border-color: #666; }
+  .code-block-footer-enhanced .copy-code-btn-enhanced[data-copied="true"] { background-color: #2c5b34; border-color: #4a7c50; color: #a5d6a7; }
+  .code-block-footer-enhanced .author-stamp-enhanced { color: #aaa; }
+
+  /* استمر في إضافة قواعد لجميع العناصر الأخرى */
+}
+/* --- End Dark Mode Overrides --- */
+
+
+/* --- General Styles using CSS Variables --- */
+div#font-controls-trigger::before { content: "\f085"; font-family: 'Font Awesome 5 Pro'; position: relative; font-weight: 400; }
+
+/* --- Code Block Styling --- */
+.code-block-container-enhanced { position: relative; margin: 1.5em 0; border: 1px solid var(--code-border); border-radius: 8px; overflow: hidden; }
+.code-block-container-enhanced pre { background-color: var(--code-bg); color: var(--code-text); padding: 16px; margin: 0; overflow: auto; max-height: 450px; font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 0.875em; line-height: 1.5; white-space: pre; word-wrap: normal; direction: ltr; text-align: left; border: none; border-radius: 0; }
+.code-block-container-enhanced pre code { display: block; font-family: inherit; font-size: inherit; color: inherit; background: none; padding: 0; margin: 0; white-space: inherit; direction: inherit; text-align: inherit; }
+.code-block-footer-enhanced { display: flex; justify-content: space-between; align-items: center; background-color: var(--code-footer-bg); padding: 8px 16px; border-top: 1px solid var(--code-border); }
+.code-block-footer-enhanced .actions { display: flex; gap: 10px; }
+.code-block-footer-enhanced button { background-color: transparent; border: 1px solid var(--code-border); color: var(--code-text); padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em; font-family: inherit; transition: background-color 0.2s ease, border-color 0.2s ease; }
+.code-block-footer-enhanced button:hover { background-color: #e8eaed; border-color: #c6cacf; } /* قد تحتاج لتعديل hover للوضع الداكن */
+body.dark-mode .code-block-footer-enhanced button:hover { background-color: #4a4a4a; border-color: #666; }
+.code-block-footer-enhanced .copy-code-btn-enhanced[data-copied="true"] { background-color: #e6f4ea; border-color: #a5d6a7; color: #137333; cursor: default; }
+body.dark-mode .code-block-footer-enhanced .copy-code-btn-enhanced[data-copied="true"] { background-color: #2c5b34; border-color: #4a7c50; color: #a5d6a7; }
+.code-block-footer-enhanced .author-stamp-enhanced { font-size: 0.75em; color: #5f6368; display: flex; align-items: center; gap: 5px; }
+body.dark-mode .code-block-footer-enhanced .author-stamp-enhanced { color: #aaa; }
+
+/* --- Font --- */
+@font-face {font-family:Almarai;font-style:normal;font-weight:400;font-display:swap;src:local('Almarai'),local('Almarai-Regular'),url(https://fonts.gstatic.com/s/almarai/v2/tsstApxBaigK_hnnQ1iFo0C3.woff2) format('woff2');unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+
+/* --- Tables --- */
+.widget .post-body table { border-collapse: collapse; border-spacing: 0; margin-bottom: 1rem; table-layout: fixed; width: 100%!important; }
+.widget .post-body table td { border: 1px solid var(--border-color); padding: .5rem; } /* Use variable */
+
+/* --- Download Buttons --- */
+.post a:not(a.internal-link,a.windows,a.pc,a.android,a.gameplay) { color: var(--link-color); } /* Use variable */
+.windows,.pc { background: #0571c8; color: #f9f9f9; font-size: larger; border-radius: 3px; font-weight: 700; padding: 10px 15px; display: table; box-shadow: 0 3px 4px rgb(0 0 0 / 10%); margin: auto; margin-bottom: 10px; }
+.windows:before,.pc:before{ content: ""; width: 1.7em; height: 1.9em; margin-left: 10px; display: inline-block; vertical-align: middle; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23f9f9f9' d='M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z'%3E%3C/path%3E%3C/svg%3E") no-repeat }
+.windows>span { background-color: #065a9e; color: #f7f7f7; width: 70px; display: inline-block; font-size: small; line-height: 2.3; border-radius: 3px; margin: 0; margin-right: 5px; }
+.android { background: green; color: #f9f9f9; font-size: larger; border-radius: 3px; font-weight: 700; padding: 10px 15px; display: table; box-shadow: 0 3px 4px rgb(0 0 0 / 10%); margin: auto; margin-bottom: 10px; }
+.android:before{ content: ""; width: 1.7em; height: 1.9em; margin-left: 10px; display: inline-block; vertical-align: middle; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f9f9f9' viewBox='0 0 16 16'%3E%3Cpath d='m10.213 1.471.691-1.26c.046-.083.03-.147-.048-.192-.085-.038-.15-.019-.195.058l-.7 1.27A4.832 4.832 0 0 0 8.005.941c-.688 0-1.34.135-1.956.404l-.7-1.27C5.303 0 5.239-.018 5.154.02c-.078.046-.094.11-.049.193l.691 1.259a4.25 4.25 0 0 0-1.673 1.476A3.697 3.697 0 0 0 3.5 5.02h9c0-.75-.208-1.44-.623-2.072a4.266 4.266 0 0 0-1.664-1.476ZM6.22 3.303a.367.367 0 0 1-.267.11.35.35 0 0 1-.263-.11.366.366 0 0 1-.107-.264.37.37 0 0 1 .107-.265.351.351 0 0 1 .263-.11c.103 0 .193.037.267.11a.36.36 0 0 1 .112.265.36.36 0 0 1-.112.264Zm4.101 0a.351.351 0 0 1-.262.11.366.366 0 0 1-.268-.11.358.358 0 0 1-.112-.264c0-.103.037-.191.112-.265a.367.367 0 0 1 .268-.11c.104 0 .19.037.262.11a.367.367 0 0 1 .107.265c0 .102-.035.19-.107.264ZM3.5 11.77c0 .294.104.544.311.75.208.204.46.307.76.307h.758l.01 2.182c0 .276.097.51.292.703a.961.961 0 0 0 .7.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h1.343v2.182c0 .276.097.51.292.703a.972.972 0 0 0 .71.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h.76c.291 0 .54-.103.749-.308.207-.205.311-.455.311-.75V5.365h-9v6.404Zm10.495-6.587a.983.983 0 0 0-.702.278.91.91 0 0 0-.293.685v4.063c0 .271.098.501.293.69a.97.97 0 0 0 .702.284c.28 0 .517-.095.712-.284a.924.924 0 0 0 .293-.69V6.146a.91.91 0 0 0-.293-.685.995.995 0 0 0-.712-.278Zm-12.702.283a.985.985 0 0 1 .712-.283c.273 0 .507.094.702.283a.913.913 0 0 1 .293.68v4.063a.932.932 0 0 1-.288.69.97.97 0 0 1-.707.284.986.986 0 0 1-.712-.284.924.924 0 0 1-.293-.69V6.146c0-.264.098-.491.293-.68Z'/%3E%3C/svg%3E") no-repeat }
+.android>span { background-color: #016501; color: #f7f7f7; width: 70px; display: inline-block; font-size: small; line-height: 2.3; border-radius: 3px; margin: 0; margin-right: 5px; }
+.gameplay { background: #e74c3c; color: #f9f9f9; font-size: larger; border-radius: 3px; font-weight: 700; padding: 10px 15px; display: table; box-shadow: 0 3px 4px rgb(0 0 0 / 10%); margin: auto; margin-bottom: 10px; }
+.gameplay:before { content: ""; width: 1.7em; height: 1.8em; margin-left: 10px; display: inline-block; vertical-align: middle; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f9f9f9' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z'/%3E%3C/svg%3E") no-repeat; }
+.gameplay>span { background-color: #c13b2d; color: #f7f7f7; width: 70px; display: inline-block; font-size: small; line-height: 2.3; border-radius: 3px; margin: 0; margin-right: 1px; }
+.windows:hover,.pc:hover,.android:hover,.gameplay:hover { opacity: .8; }
+
+/* --- General Layout --- */
+.blog-feeds,.post-feeds,.date-header,#topads h2,.jadeed,.status-msg-wrap,.menublabel {display:none;}
+.section,.widget,.widget ul,.widget li,.widget .post-body ul{margin:0;padding:0}
+.widget ul {line-height: 1.8;}
+th {display: table-cell !important; float: none !important;}
+#overlay:not(#layout){background: var(--main-color); color:#666; position:fixed; height:100%; width:100%; z-index:5000; top:0; left:0; float:left; text-align:center; padding-top:25%}
+
+body {
+  background: var(--bg-color) var(--bg-body-pattern) repeat scroll 0 0; /* Use variables */
+  font: 14px "droid arabic kufi",georgia;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color); /* Use variable */
+}
+a { color: var(--link-color); text-decoration: none; transition: all 0.7s ease 0s; } /* Use variable */
+a:hover { color: #000; } /* Or use var(--hocolor) or var(--sub-color) */
+#container { padding-bottom: 30px; }
+a.a7la7-comment::before { content: "\f044"; }
+
+/* --- Main Menu --- */
+#main-menu { background-color: var(--menu-bg-color); height: 48px; position: fixed; top: 0; width: 100%; z-index: 999; }
+#menu-inner { margin: auto; position: relative; width: 980px; }
+#menubtn,#shbtn { position: absolute; visibility: hidden; }
+.smallogo::before { background-color: var(--hocolor); border-radius: 100%; box-shadow: 0 0 2px #555 inset; content:"\f015"; display: inline-block; font: bold 20px/32px fontawesome; height: 32px; margin-left: 5px; text-align: center; width: 32px; transition: all 0.7s ease 0s; }
+.smallogo:hover::before{ color: #000; }
+.smallogo { color: var(--menu-text-color); float: right; font-size: 15px; font-weight: bold; height: 48px; line-height: 48px; margin-left: 5px; }
+.smallogo:hover{ color: var(--hocolor); }
+#menubtn + label span::before { background-color: var(--sub-color); border-radius: 5px; color: var(--menu-text-color); content: "\f0c9"; cursor: pointer; float: right; font: 20px/30px fontawesome; height: 30px; margin: 9px 10px 0 0; text-align: center; width: 40px; }
+#menubtn:checked + label span::before { background-color: var(--hocolor); }
+.t-menu { float: right; margin: 0; padding: 0; width: auto; }
+.t-menu li { float: right; list-style: outside none none; }
+.t-menu a { color: var(--menu-text-color); display: block; float: right; font-size: 15px; height: 48px; line-height: 48px; padding: 0 8px; text-align: center; text-decoration: none; }
+.suba { cursor: default; }
+.suba::after { content: "\f0d7"; font: 12px fontawesome; margin-right: 5px; }
+#drop::before { color: var(--menu-bg-color); content:"\f0de"; cursor: default; font: 20px fontawesome; margin-right: 17px; margin-top: -10px; position: absolute; -webkit-margin-before: -8px; }
+#drop { margin: 60px 0 0; opacity: 0; padding: 6px 0 0; position: absolute; transition: all 0.5s ease 0s; visibility: hidden; z-index: -1; }
+#sub:hover #drop { margin: 48px 0 0; opacity: 1; visibility: visible; z-index: 999; }
+#drop li { float:none; }
+#drop a { background-color: var(--menu-bg-color); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; height: 36px; line-height: 36px; min-width: 100px; text-align: right; width: 100%; color: var(--menu-text-color); }
+#drop a:hover { background-color: var(--sub-color); }
+.t-menu a::before { float: right; font: 20px/48px fontawesome; height: 48px; margin-left: 5px; }
+#drop a::before { float: right; font: 18px/37px fontawesome; height: 36px; }
+#aana::before {content:"\f05a";} #tabena::before {content:"\f097";}
+.blogtabe::before {content: "B"; font: bold 20px/36px serif !important;} .facetabe::before {content: "\f09a";} .gplustabe::before {content: "\f0d5";} .twtabe::before {content: "\f099";} .mailtabe::before {content: "\f0e0";} .yttabe::before {content: "\f16a";}
+.conus::before {content: "\f003";} .shorot::before {content: "\f059";} .khososia::before {content: "\f023";}
+
+/* --- Search Box --- */
+#search { left: 0; position: absolute; }
+#shbtn + label span::before { color: var(--menu-text-color); content:"\f002"; cursor: pointer; display: block; float:left; font: 30px/48px fontawesome; height: 48px; text-align: center; padding-left:5px; }
+#search-text { background-color: var(--sub-color); border: 0 none; color: #eee; float: left; font: 15px "droid arabic kufi",georgia; height: 48px; padding: 0 5px; transition: all 0.2s ease 0s; visibility: hidden; width: 0; }
+#shbtn:checked + label span::before { content: "\f00d"; background-color: var(--sub-color); }
+#shbtn:checked ~ #search-text{ visibility: visible; width: 140px; }
+
+/* --- Header Area --- */
+#header-wrapper { background-color: var(--header-bg-color); border-bottom: 1px solid var(--border-color); padding-bottom: 50px; padding-top: 88px; } /* Use variables */
+.header h1, .header h1 a { color: var(--text-color); font-size: 70px; } /* Use variable */
+.description span { color: #777; display: block; font-size: 20px; } /* Use variable or create one */
+
+/* --- Outer Wrapper --- */
+#outer-wrapper { margin: 0 auto; padding: 30px 0; width: 980px; }
+.slider .widget-content { margin-bottom: 40px; margin-top: -10px; }
+
+/* --- Top Ads --- */
+#topads .widget-content { background-color: var(--widget-bg-color); border: 10px solid var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); box-sizing: border-box; margin: 0 auto 40px; max-height: 110px; max-width: 748px; overflow: hidden; width: 100%; } /* Use variables */
+#topads .widget-content img { width:100%; height:auto; }
+
+/* --- Slider (Example - adjust colors if needed) --- */
+.owl-loaded li { display: block !important; }
+.slidesh li{ background-color:var(--widget-bg-color); border:1px solid #ddd; height:300px; overflow:hidden; padding:8px; position:relative; transition:all .4s ease 0 }
+.imgcontain{ background-color:#000; display:block; height:190px; overflow:hidden; position:relative; width:100% }
+.imgcontain img{ height:100%; transition: all 0.4s ease 0s; }
+.imgcontain:hover img{ opacity:.7 }
+.imgcontain span{ background-color:var(--widget-bg-color); box-shadow:0 1px 2px #000; color:var(--text-color); display:block; font-size:18px; height:40px; line-height:40px; margin-right:-40px; margin-top:-20px; position:absolute; right:50%; text-align:center; top:50%; width:80px; z-index:2 }
+.slidesh p{ display:block; font-size:16px; line-height:1.8em; margin:5px 0; text-align:center; color: var(--text-color); }
+.paye{ background-color: var(--header-bg-color); border-top:1px solid #ddd; bottom:0; height:40px; line-height:40px; margin:0; position:absolute; right:0; width:100% }
+.paye span{ background-color: var(--main-color); color: var(--menu-text-color); float:right; font:18px/38px arial; height:38px; margin-right:1px; margin-top:1px; text-align:center; width:50px }
+.paye span::before{ content:"$"; margin:0 4px 0 0 }
+.paye a{ color: var(--menu-text-color); display:inline-block; float:left; height:38px; margin-left:1px; margin-top:1px; padding:0 8px }
+.paye a:hover { background-color:#000; }
+.skhamsat{ background-color:#f98101 }
+.vodafone{ background-color:#EA0000 }
+.slidesh .owl-nav{ position:absolute; right:9px; top:9px }
+.slidesh .owl-nav div{ background-color:rgba(0,0,0,.5); color: var(--menu-text-color); float:left; font-size:24px; height:30px; line-height:30px; text-align:center; width:30px }
+.slidesh .owl-nav div:hover{ background-color:#000 }
+.slidesh .owl-prev{ margin-right:2px }
+
+/* --- Main Wrapper (Content Area) --- */
+/* Adjusted in sidebar control section below */
+
+/* --- Post Feed Items (.post-home) --- */
+/* Adjusted in post column layout section below */
+.post-home { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); height: 300px; overflow: hidden; position: relative; } /* Use variables */
+.thumcont { border-bottom: 1px solid #eee; height: 150px; overflow: hidden; position: relative; width: 100%; }
+.thumbin,.thnoimg { background-color: #333; height: 100%; position: absolute; width: 100%; }
+.thumbin { z-index: 2; } .thnoimg { z-index: 1; }
+.thumcont img { height: 100%; width: 100%; transition: all 0.7s ease 0s; }
+.thumcont img:hover { opacity: 0.5; transform: scale(1.3); }
+.thnoimg::before { color: var(--menu-text-color); content: "\f030"; display: block; font: 60px/150px fontawesome; text-align: center; width: 100%; transition: all 0.7s ease 0s; }
+.thnoimg:hover::before { background-color:var(--main-color); }
+.ptitle { color: var(--text-color); display:block; line-height: 1.8em; margin:5px; text-align: center; }
+.post-snippet { color: var(--text-color); font: 14px/1.9em tahoma; margin: 0 5px; text-align: center; }
+.sharebuto { background-color: rgba(255, 255, 255, 0.6); border-radius: 2px 0 0; bottom: 0; box-shadow: -1px -1px 1px #bbb; list-style: outside none none; margin: 0; padding: 3px !important; position: absolute; right: 0; z-index: 99; }
+.sharebuto li { float: left; padding:0; display: block; }
+.sharebuto a { color: var(--menu-text-color); display: block; height: 20px; line-height: 20px; text-align: center; width: 20px; }
+.sharebuto a:hover { background-color:#555 !important; }
+.sharebuto .fa.fa-facebook { background-color: var(--main-color); }
+.sharebuto .fa.fa-twitter { background-color: #5aaeee; }
+.sharebuto .fa.fa-google-plus { background-color: #ce3547; }
+.labandcomm { background-color: #eee; border-top: 1px solid #ddd; bottom: 0; font-size: 12px; height: 30px; line-height: 30px; position: absolute; width: 100%; }
+.comment-bubble::before { content: "\f086"; float: left; font: 16px/30px fontawesome; margin: 0 4px; }
+.comment-bubble::after { color: var(--sub-color); content: "\f0da"; float: right; font: 22px/30px fontawesome; margin-right: -7px; transition: all 0.7s ease 0s; }
+.comment-bubble:hover::after { color:var(--main-color); }
+.comment-bubble { background-color: var(--sub-color); color: var(--menu-text-color); float: left; font: 12px/30px arial; height: 30px; text-align: left; width: 50px; }
+.comment-bubble:hover { background-color: var(--main-color); color:var(--menu-text-color); }
+.labelsmm::before { content: "\f02c"; float: right; font: 16px/30px fontawesome; margin: 0 5px; }
+.labelsmm a { color: var(--text-color); } /* Use variable */
+.labelsmm a:hover { color: var(--link-color); } /* Use variable */
+
+/* --- Ads --- */
+.firstad { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); height: 300px; left: 12px; overflow: hidden; position: absolute; width: 318px; } /* Use variable */
+.adsunderf { float: right; margin-bottom: 20px; width: 649px; }
+.adsun1 { float: right; } .adsun2 { float: left; }
+.adsunderf span { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); display: block; height: 250px; overflow: hidden; padding: 8px; width: 300px; } /* Use variable */
+
+/* --- Single Post Area --- */
+.post { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color) inset; display: block; margin-left: 12px; overflow: hidden; color: var(--text-color); } /* Use variables */
+.post-body { line-height: 2em; padding: 0 10px; width: auto; }
+.post-body img { max-width: 96%; height: auto; } /* Added height: auto */
+.post-title { display: block; font-size: 20px; font-weight: normal; margin: 0; padding: 20px 5px; text-align: center; color: var(--text-color); } /* Use variable */
+.postin-dat::before { background-color: var(--main-color); content: ""; display: inline-block; height: 30px; margin-right: 13px; margin-top: -9px; position: absolute; transform: rotate(45deg); width: 20px; }
+.postin-dat a::before { content: "\f073"; float: right; font: 16px/22px fontawesome; margin: 0 0 0 4px; }
+.postin-dat a { background-color: var(--main-color); color: var(--menu-text-color); display: inline-block; font-weight: bold; height: 24px; line-height: 23px; padding: 0 10px; position: absolute; right: 20px; top: -12px; z-index: 1; }
+.autorandlab { background-color: var(--header-bg-color); border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; display: block; font-size: 12px; height: 30px; line-height: 30px; margin: 0 1px 10px; overflow: hidden; } /* Use variable */
+.andlabel { float: right; }
+.andlabel::before { content: "\f02c"; float: right; font: 18px/32px fontawesome; margin: 0 5px; }
+.andlabel a { background-color: var(--main-color); color: var(--menu-text-color); display: block; float: right; font-size: 11px; font-weight: bold; height: 18px; line-height: 14px; margin: 6px 0 0 5px; padding: 0 8px; }
+.andlabel a:hover { background-color:var(--sub-color); }
+.andauthor { float: left; margin-left: 5px; }
+.andauthor::before { content: "\f007"; float: right; font: 18px/30px fontawesome; margin: 0 0 0 5px; }
+.auname { background-color: var(--hocolor); color: var(--menu-text-color); display: block; float: right; font-weight: bold; height: 18px; line-height: 17px; margin: 6px 0 0; padding: 0 8px; }
+.auname a { color: var(--menu-text-color); }
+.post h2 { background-color: var(--main-color); border: 1px dashed var(--widget-bg-color); box-shadow: 0 0 0 4px var(--main-color); color: var(--menu-text-color); display: block; font-weight: normal; min-height: 40px; line-height: 40px; margin: 20px 5px; padding: 0 10px; } /* Use variables */
+.post h3 { background-color: #eee; border-bottom: 4px solid var(--hocolor); display: block; font-weight: normal; line-height: 38px; margin: 20px 0; min-height: 40px; padding: 0 10px; color: var(--text-color); } /* Use variable */
+.post h4::before { color: #4fba6e; content: "\f058"; float: right; font: 22px fontawesome; margin-left: 5px; }
+.post h4 { color: var(--text-color); text-align: right !important; margin:20px 0; } /* Use variable */
+blockquote::before { background-color: var(--main-color); color: var(--menu-text-color); font: bold 16px/34px droid arabic kufi; height: 34px; margin: 0 0 0 -10px; position: absolute; top: 0; width: 100%; right: 0; padding:0 8px; box-sizing: border-box; content: "اقتباس"; } /* Use variables */
+blockquote { background-color: #eee !important; color: var(--sub-color) !important; display: block; font-size: 14px; line-height:1.8em; margin: 20px auto 5px; max-height: 300px; overflow: auto; padding: 40px 10px 10px; position: relative; text-align:right; width: 94%; } /* Use variable */
+.post ol{ counter-reset:li; list-style: none; *list-style: decimal; margin-right:0; padding-right:0 }
+.post ol li:before { background-color:var(--main-color); color: var(--menu-text-color); content: counter(li, decimal); counter-increment: li; font: bold 14px serif; margin: 0 0 10px; padding: 5px 3px !important; position: absolute; right: -9px; text-align: right; text-indent: 6px; top: -5px; width: 20px; } /* Use variables */
+.post ol li:after { border-color: transparent var(--main-color) transparent transparent; border-style: solid; border-width: 5px 5px 0 0; content: ""; height: 0; position: absolute; right: 17px; top: -5px; width: 0; } /* Use variable */
+.post ol li{ position:relative; margin:0 15px 20px 0 !important; padding:4px 10px 4px 5px !important; list-style:none; *list-style: decimal; border-bottom:1px solid #e2e3e2; background-color:#f2f2f2; text-indent:14px; color: var(--text-color); }
+
+/* --- Related Posts & Sharing --- */
+.relatsharu { margin: 20px -10px 0;}
+.titlesshar { background-color: #eee; display: block; height: 40px; }
+.relatedtit::after { color: var(--main-color); content:"\f0d7"; font: 22px fontawesome; margin: 29px -52px 0 0; position: absolute; } /* Use variable */
+.relatedtit { background-color: var(--main-color); color: var(--menu-text-color); display: block; float: right; height: 40px; line-height: 40px; text-align: center; width: 110px; } /* Use variables */
+.fotshare { float: left; }
+.sharek::before { color: var(--sub-color); content:"\f0da"; font: 22px/40px fontawesome; margin-right: -21px; position: absolute; } /* Use variable */
+.sharek { background-color: var(--sub-color); color: var(--menu-text-color); float: left; height: 40px; line-height: 40px; text-align: center; width: 60px; } /* Use variables */
+.fotshare ul { float: left; height: 40px; line-height: 40px; list-style: outside none none; margin: 0; padding: 0; }
+.fotshare li { float: left; padding: 0; }
+.fotshare li a { color: var(--menu-text-color); display: block; font-size: 22px; height: 40px; line-height: 40px; text-align: center; width: 40px; }
+.fotshare li a:hover { box-shadow: 0 80px 1px #000 inset; }
+.fotshare .fa.fa-facebook::after { color: var(--sub-color); content: "\f0da"; font-size: 22px; margin: 0 7px 0 0; position: absolute; } /* Use variable */
+.fotshare .fa.fa-facebook { background-color: var(--main-color); } /* Use variable */
+.fotshare .fa.fa-twitter { background-color: #5aaeee; }
+.fotshare .fa.fa-google-plus { background-color: #ce3547; }
+.urls { float: left; width: 50%; }
+.urls h5::before { color: var(--main-color); content:"\f0c1"; float: right; font: 22px/40px fontawesome; margin-left: 5px; margin-top: 2px; } /* Use variable */
+.urls h5 { border-bottom: 1px dashed var(--border-color); color: var(--text-color); font-size: 16px; height: 40px; line-height: 40px; margin: 0 0 10px; padding-right: 10px; } /* Use variables */
+.posturls tr { border: 1px solid var(--border-color); display: block; float: right; margin-bottom: 10px; margin-right: 5px; overflow: hidden; padding: 0; width: 96%; } /* Use variable */
+th { display: block; float: right; width: 70%; }
+.utitles::after { color: var(--sub-color); content:"\f0d9"; float: left; font: 20px/30px fontawesome; margin-left: -8px; position: relative; z-index: 1; -webkit-margin-end: -7px; } /* Use variable */
+.utitles { background-color: var(--sub-color); color: var(--menu-text-color); height: 30px; line-height: 30px; text-align: center; width: 70px; } /* Use variables */
+.posturls input { border: 0 none; color: var(--text-color); float: right; height: 30px; margin: 0; padding: 0 10px; width: 100%; background: var(--widget-bg-color); } /* Use variables */
+.urls h6::before { color: #e90000; content:"\f071"; float: right; font: 20px fontawesome; }
+.urls h6 { background-color: #eee; border: 1px solid #ddd; color: var(--sub-color); display: block; font-size: 11px; margin: 10px; padding: 5px; text-align: center; } /* Use variable */
+.relatedp { box-shadow: -1px 0 0 0 #ddd; float: right; width: 50%; }
+#related_posts ul { margin: 15px 10px; padding: 0; }
+#related_posts ul li { display: block; float: right; height: 58px; list-style: outside none none; margin-bottom: 8px; overflow: hidden; width: 100%; }
+#related_posts li img { border: 1px solid #ddd; float: right; height: 50px; margin-left: 5px; padding: 3px; transition: all 0.7s ease 0s; width: 60px; }
+#related_posts li img:hover { opacity: 0.7; }
+#related_posts .news-text { display: none; }
+#related_posts .relinkjdulx { display: block; font-size: 12px; color: var(--link-color); } /* Use variable */
+
+/* --- Post Navigation --- */
+.cnmu-pager { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color) inset; display: block; height: 100px; list-style: outside none none; margin: 20px 0 20px 12px !important; overflow: hidden; padding: 0 !important; position: relative; } /* Use variables */
+.cnmu-pager li { height: 100px; margin: 0; overflow: hidden; padding: 0; }
+.cnmu-pager .next { float: right; width: 50%; }
+.cnmu-pager .previous { float: left; width: 50%; box-shadow: 1px 0 0 var(--border-color); } /* Use variable */
+.cnmu-pager a { display: block; height: 100px; }
+.cnmu-pager .fa.fa-angle-right { color: var(--menu-text-color); font-size: 40px; margin-right: 5px; margin-top: -6px; position: absolute; right: 0; }
+.cnmu-pager .fa.fa-angle-left { color: var(--menu-text-color); font-size: 40px; left: 0; margin-left: 5px; margin-top: -6px; position: absolute; }
+.cnmu-pager strong{ background-color: var(--sub-color); color: var(--menu-text-color); display: block; height: 30px; line-height: 30px; text-align: center; transition: all 0.7s ease 0s; } /* Use variable */
+.cnmu-pager .older-link strong { background-color: var(--main-color); } /* Use variable */
+.cnmu-pager li:hover .older-link strong ,.cnmu-pager li:hover .newer-link strong{ background-color: var(--hocolor); } /* Use variable */
+.cnmu-pager span { color: var(--sub-color) !important; display: block; font-size: 13px; height: 59px; line-height: 2.3em; padding: 5px; text-align: center; transition: all 0.7s ease 0s; } /* Use variable */
+.cnmu-pager .previous span { background-color: #eee; margin: 0 0 0 1px; }
+.cnmu-pager .next span { margin:0 1px 0 0; background-color: var(--widget-bg-color); } /* Use variable */
+
+/* --- Comments --- */
+.comments { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color) inset; margin-bottom: 20px; margin-left: 12px; padding: 0 10px; } /* Use variables */
+.comments h4::before { content: "\f086"; float: right; font: 30px/34px fontawesome; margin: 0 10px 0 5px; }
+.comments h4 { background-color: var(--main-color); color: var(--menu-text-color); height: 34px; line-height: 34px; margin: 0 -10px 10px; } /* Use variables */
+.avatar-image-container { background-color: var(--widget-bg-color); border: 1px solid #ddd; padding: 3px; }
+.comment-header { background-color: #eee; font-size: 12px; height: 22px; line-height: 22px; overflow: hidden; position: relative; }
+.comments .user,.comments .user a { background-color: var(--sub-color); color: var(--menu-text-color); padding: 0 8px; } /* Use variables */
+.icon.user.blog-author,.icon.user { display: none !important; }
+.user.blog-author { background-color: transparent; }
+.user.blog-author a::before { color: var(--hocolor); content: "\f007"; float: right; font: 16px fontawesome; margin: 0 5px; } /* Use variable */
+.user.blog-author a::after { background-color: var(--hocolor); content: "مشرف"; float: left; margin-right: 5px; padding: 0 5px; } /* Use variable */
+.user.blog-author a { background-color: var(--main-color); color: var(--menu-text-color); float: right; margin: 0; padding: 0 ; } /* Use variables */
+.comment .datetime a::before { content: "\f017"; float: right; font: 16px/22px fontawesome; margin: 0 5px; }
+.comment .datetime a { background-color: var(--sub-color); color: var(--menu-text-color); float: left; height: 100%; left: 0; padding: 0 0 0 5px; position: absolute; transition: all 0.7s ease 0s; width: 18px; z-index: 2; } /* Use variables */
+.comment .datetime a:hover { width:180px; }
+.comment-replies { margin: 10px 0 !important; }
+.comment-content { color: var(--sub-color); font: 14px/1.8em tahoma; max-height: 400px; overflow: auto; padding: 5px; } /* Use variable */
+.comment-content strong::before { background-color: var(--widget-bg-color); color: #000; content: "code / كود"; display: block; font: bold 12px/24px "droid arabic kufi",georgia; height: 24px; margin: 0 0 5px; padding: 0 5px; }
+.comment-content strong { background-color: #000; color: #fff; direction: ltr; display: block; font: 12px/1.8em georgia; max-height: 200px; overflow: auto; padding: 5px; text-align: left; }
+.comment-actions a { background-color: var(--main-color); color: var(--menu-text-color); height: 16px; line-height: 12px; padding: 0 16px !important; position: absolute; right: -48px; text-align: center; text-decoration: none !important; top: 44px; } /* Use variables */
+.comment-actions a:hover{ background-color: var(--hocolor); } /* Use variable */
+.comment-thread.inline-thread { background-color: #f8f8f8; box-shadow: 0 0 1px #ddd inset; margin: 20px 0 0 !important; padding: 0 5px !important; }
+.comments .item-control a::before { background-color: var(--hocolor); color: var(--menu-text-color); content: "\f014"; font: 16px/22px fontawesome; left: 23px; position: absolute; text-align: center; top: 0; visibility: visible; width: 24px; } /* Use variable */
+.comments .item-control a { left: 0; top: 0; visibility: hidden; }
+.comment-content a { display: none; }
+.comment-replies .comment-content a { display: inline-block; }
+.continue a { background-color: var(--sub-color); color: var(--menu-text-color); font-weight: normal !important; height: 30px; line-height: 30px; padding: 0 !important; text-align: center; width: 100px; } /* Use variables */
+.comment-replies .continue a, .comment-replies .continue { background-color: var(--sub-color); color: #ddd; display: inline-block; font-weight: normal !important; height: 16px; line-height: 13px; margin-right: -3px; padding: 0 !important; text-align: center; width: 40px; } /* Use variables */
+.commentmesg { background-color: #fdf9e1; box-shadow: 0 0 1px #bbb inset; font: 13px/1.5em tahoma; padding: 5px 5px 8px; }
+.commentmesg b { background-color: var(--sub-color); color: var(--menu-text-color); float: right; font: bold 12px/16px tahoma; height: 16px; margin-left: 5px; margin-top: 2px; text-align: center; width: 16px; } /* Use variables */
+.commentmesg a { color: var(--hocolor); text-decoration: underline; } /* Use variable */
+.commentmesg a:hover { color:#000; }
+#comment-editor { background-color: #f9f9f9; box-shadow: 0 0 1px #ddd inset; margin-bottom:10px; min-height: 260px; }
+
+/* --- Sidebar --- */
+/* Adjusted in sidebar control section below */
+
+/* --- Sidebar Tabs --- */
+.side-taps .widget h2 { display: none; }
+.tabs-widget { background-color: #000; display: block; height: 36px; line-height: 36px; list-style: outside none none; margin: 0; padding: 0; }
+.tabs-widget li { display: block; float: right; height: 100%; position: relative; width: 33.3%; }
+.tabs-widget li a { color: var(--menu-text-color); display: block; font-size: 12px; font-weight: bold; height: 100%; width: 100%; }
+.tabs-widget li a:hover, .tabs-widget li a.tabs-widget-current { background-color: var(--main-color); } /* Use variable */
+.tabs-widget-current::after { color: var(--main-color); content: "\f0d7"; display: block; font: 26px/36px fontawesome; position: absolute; text-align: center; top: 21px; width: 100%; z-index: 5; } /* Use variable */
+.tabs-widget li a::before { float: right; font: 20px/36px fontawesome; margin: 0 5px; }
+.tabs-widget #stab1 a::before {content: "\f004";} .tabs-widget #stab2 a::before {content: "\f02c";} .tabs-widget #stab3 a::before {content: "\f086";}
+.side-taps .widget { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color) inset; float: left; margin-bottom: 20px !important; width: 100%; } /* Use variables */
+.side-taps .widget-content { padding: 18px 9px 9px; }
+
+/* --- Sidebar Widgets --- */
+#sidebar .widget { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color) inset; margin: 0 0 20px; overflow: hidden; padding: 9px; } /* Use variables */
+#sidebar h2::before { background-color: var(--hocolor); content: "\f1cb"; display: block; position: absolute; font: 24px/34px fontawesome; height: 34px; width: 34px; } /* Use variable */
+#sidebar h2::after { color: var(--main-color); content: "\f0dd"; display: block; font: 30px fontawesome; margin-top: -22px; position: absolute; width: 100%; -webkit-margin-before: -19px; } /* Use variable */
+#sidebar h2 { background-color: var(--main-color); color: var(--menu-text-color); font-size: 14px; height: 34px; line-height: 34px; margin: 0 0 15px 0; position: relative; text-align: center; } /* Use variables */
+.PopularPosts h2::before {content: "\f004" !important;}
+.PopularPosts ul { list-style: outside none none; margin: 0; padding: 0; }
+.PopularPosts li { border-bottom: 1px dashed #ddd; height: 60px; list-style: outside none none; margin-bottom: 5px; overflow: hidden; padding: 5px 0 !important; }
+.popthumbcont { border: 1px solid #ddd; float: right; height: 50px; margin-left: 5px; overflow: hidden; padding: 3px; position: relative; width: 60px; }
+.poplink::before { background-color: var(--sub-color); color: var(--menu-text-color); content: "\f030"; font: 40px/53px fontawesome; height: 50px; left: 0; margin: 3px; position: absolute; text-align: center; top: 0; width: 60px; } /* Use variable */
+.poplink::after { background-color: var(--hocolor); color: var(--menu-text-color); content: "\f08e"; font: 20px/56px fontawesome; height: 100%; left: 0; margin-top: -60px; opacity: 0; position: absolute; text-align: center; top: 0; transition: all 0.7s ease 0s; width: 100%; z-index: 1; } /* Use variable */
+.popthumbcont:hover .poplink::after { margin-top: 0; opacity: 1; }
+.PopularPosts .item-thumbnail,.PopularPosts img { float: right; height: 100%; margin: 0; width: 100%; padding: 0; }
+.PopularPosts .item-title a { display: block; font-size: 13px; height: 50px; line-height: 1.8em; overflow: hidden; color: var(--link-color); } /* Use variable */
+.PopularPosts .item-snippet { display: none; }
+.Label h2::before {content: "\f02c" !important;}
+.Label ul { list-style: outside none none; margin: 0; padding: 0; }
+.Label li { margin: 0; padding: 0; position: relative; }
+.Label li a::before,.Label li .labename::before { background-color: var(--hocolor); content: "\f02b"; float: right; font: 16px/30px fontawesome; height: 30px; margin-left: 5px; text-align: center; width: 30px; } /* Use variable */
+.Label li a,.Label li .labename { background-color: var(--main-color); color: var(--menu-text-color); display: block; height: 30px; line-height: 30px; margin-bottom: 5px; padding: 0; } /* Use variables */
+.Label li a:hover { background-color:#555; }
+.Label li .labename { background-color: #555 !important; }
+.label-count { background-color: var(--sub-color); color: var(--menu-text-color); font: bold 14px/30px serif; height: 30px; left: 0; position: absolute; text-align: center; top: 0; width: 30px; } /* Use variables */
+.label-size .label-count { display:none; }
+.label-size { opacity: 1; }
+.label-size a,.label-size span { border: 1px solid var(--sub-color); box-shadow: 0 0 0 2px var(--widget-bg-color) inset; color: var(--menu-text-color); display: inline-block; float: right; font-size: 12px; font-weight: bold; height: 30px; line-height: 28px; margin: 0 0 8px 5px; padding: 0 10px; } /* Use variables */
+.label-size-1 a {background-color: #00AB03;} .label-size-2 a {background-color: #FB5800;} .label-size-3 a {background-color: #00A2FF;} .label-size-4 a {background-color: #B300FF;} .label-size-5 a {background-color: #F10004;}
+.label-size span,.label-size a:hover { background-color: var(--main-color); } /* Use variable */
+.LinkList h2::before {content: "\f005" !important;}
+.LinkList ul { list-style: outside none none; margin: 0; padding: 0; }
+.LinkList li a { background-color: var(--sub-color); box-shadow: 0 1px 0 4px var(--widget-bg-color); color: var(--menu-text-color); display: block; float: right; height: 40px; line-height: 40px; margin-bottom: 5px; text-align: center; width: 100%; overflow: hidden; } /* Use variables */
+.LinkList li a:hover { background-color: var(--hocolor); } /* Use variable */
+.FeaturedPost h3 a { display: block; font-size: 15px; line-height: 1.8em; text-align: center; color: var(--link-color); } /* Use variable */
+.FeaturedPost p { display: block; font: 14px/1.8em tahoma; margin: 5px 0 10px; text-align: center; color: var(--text-color); } /* Use variable */
+.BlogArchive h2::before {content: "\f0c5" !important;}
+.BlogArchive select { color: var(--text-color); font: 14px "droid arabic kufi",georgia; padding: 5px 0; width: 100%; background: var(--widget-bg-color); border-color: var(--border-color); } /* Use variables */
+#HTML3 h2::before {content: "\f0c0" !important;} #HTML4 h2::before {content: "\f0a1" !important;}
+
+/* --- Blog Pager --- */
+#blog-pager { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); height: 40px; line-height: 40px; margin: 0 0 20px 12px; overflow: visible; text-align: right; } /* Use variables */
+.home-link { display: block; float: none; margin: 0 auto; text-align: center; width: 120px; color: var(--link-color); }
+.blog-pager-newer-link { border-left: 1px solid var(--widget-border-color); float: right; padding: 0 5px; color: var(--link-color); } /* Use variables */
+.blog-pager-older-link { border-right: 1px solid var(--widget-border-color); float: left; padding: 0 5px; color: var(--link-color); } /* Use variables */
+.nextpage,.prevnav,.noqat1, .noqat2 { display: none !important; }
+.showpageOf { border-left: 1px solid var(--widget-border-color); display: block; float: right; margin-left: 5px; padding: 0 5px; color: var(--text-color); } /* Use variables */
+.displaypageNum a:hover,.showpage a:hover { background-color:#000; }
+.pagecurrent,.pagesn a,.firstnum a,.lastnum a,.frnum a{ color: var(--menu-text-color); display: block; float: right; font-weight: bold; height: 30px; line-height: 30px; margin: 5px 0 0 1px; text-align: center; width: 30px; }
+.pagecurrent { background-color: var(--hocolor); } /* Use variable */
+.pagesn a,.frnum a { background-color: var(--main-color); } /* Use variable */
+.firstnum a,.lastnum a { background-color: var(--sub-color); display:none; } /* Use variable */
+.nextpage a,.prevnav a,.firstpage a { color: var(--menu-text-color); display: inline-block; float: right; height: 30px; line-height: 30px; margin: 5px 0 0 1px; padding: 0 5px; }
+.nextpage a { background-color: var(--main-color); } /* Use variable */
+.firstpage a,.prevnav a { background-color: var(--sub-color); } /* Use variable */
+.lastpage a { background-color: var(--sub-color); border-right: 1px solid var(--widget-border-color); color: var(--menu-text-color); float: left; height: 30px; line-height: 30px; margin: 5px 1px 0 5px; padding: 0 5px; } /* Use variables */
+.noqat1,.noqat2 { float: right; margin:0 2px; color: var(--text-color); }
+
+/* --- Footer Credit --- */
+.credit{ background-color: var(--footer-credit-bg); bottom:0; color: var(--footer-credit-text); font-size:12px; height:30px; line-height:30px; overflow:hidden; position:absolute; text-align:center; width:100% } /* Use variables */
+.increk{ width:100%; max-width:980px; margin:0 auto; position:relative }
+
+/* --- Style Options Panel CSS (Add this) --- */
+/* --- Copied from previous response --- */
+/* === CSS أساسي لتصميم لوحة التحكم === */
+#style-options-container { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 1001; display: flex; align-items: center; font-family: 'Tahoma', sans-serif; }
+#style-options-trigger { background: linear-gradient(135deg, #6c757d, #343a40); color: #fff; font-weight: bold; font-size: 20px; padding: 12px 10px; cursor: pointer; border: none; border-top-right-radius: 8px; border-bottom-right-radius: 8px; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; line-height: 1; writing-mode: vertical-rl; text-orientation: mixed; }
+#style-options-trigger:hover { background: linear-gradient(135deg, #adb5bd, #495057); box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4); }
+#style-options-panel { background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-left: none; border-top-right-radius: 5px; border-bottom-right-radius: 5px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); display: none; flex-direction: column; gap: 15px; min-width: 220px; max-height: 85vh; overflow-y: auto; direction: rtl; }
+#style-options-container.open #style-options-panel { display: flex; }
+#style-options-container.open #style-options-trigger { border-radius: 0; border-top-right-radius: 8px; }
+/* --- تنسيق التبويبات --- */
+.options-tabs-nav { list-style: none; padding: 0; margin: 0; display: flex; border-bottom: 1px solid #dee2e6; margin-bottom: 15px; }
+.options-tabs-nav li { padding: 8px 12px; cursor: pointer; border: 1px solid transparent; border-bottom: none; margin-bottom: -1px; color: #495057; font-size: 14px; border-top-left-radius: 4px; border-top-right-radius: 4px; }
+.options-tabs-nav li:hover { background-color: #e9ecef; }
+.options-tabs-nav li.active { background-color: #f8f9fa; border-color: #dee2e6 #dee2e6 #f8f9fa; color: #007bff; font-weight: bold; }
+.options-tabs-content .options-tab-pane { display: none; }
+.options-tabs-content .options-tab-pane.active { display: block; }
+/* --- تنسيق عناصر التحكم داخل التبويبات --- */
+.options-tab-pane h4 { font-size: 15px; margin-top: 10px; margin-bottom: 8px; color: #343a40; border-bottom: 1px dashed #ced4da; padding-bottom: 5px; }
+.options-tab-pane h4:first-child { margin-top: 0; }
+.options-tab-pane .control-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.options-tab-pane .control-item span { font-size: 14px; color: #212529; padding-left: 5px;}
+.options-tab-pane .toggle-button { background-color: #dc3545; color: white; border: none; border-radius: 15px; padding: 3px 10px; font-size: 11px; font-weight: bold; cursor: pointer; min-width: 50px; text-align: center; transition: background-color 0.3s ease; flex-shrink: 0; }
+.options-tab-pane .toggle-button.active { background-color: #28a745; }
+/* أزرار الألوان */
+#color-swatches { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+.color-swatch { width: 25px; height: 25px; border: 2px solid #adb5bd; border-radius: 50%; cursor: pointer; padding: 0; display: inline-block; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: relative; flex-shrink: 0; }
+.color-swatch:hover { transform: scale(1.1); border-color: #6c757d; }
+.color-swatch.active { border-color: #000; box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); }
+/* نوع الخط */
+#font-family-select { width: 100%; padding: 5px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px; }
+/* حجم الخط */
+.font-size-controls { display: flex; align-items: center; justify-content: space-around; gap: 5px;}
+.font-size-controls button { background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; padding: 4px 10px; font-size: 16px; font-weight: bold; cursor: pointer; min-width: 35px; flex-shrink: 0; }
+.font-size-controls button:hover { background-color: #dee2e6; }
+#current-font-size { font-size: 14px; font-weight: bold; color: #495057; min-width: 40px; text-align: center; background: #fff; padding: 3px 6px; border: 1px solid #ced4da; border-radius: 4px; flex-shrink: 0; }
+/* زر إعادة التعيين */
+#reset-all-options { background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; margin-top: 10px; text-align: center; width: 100%; }
+#reset-all-options:hover { background-color: #5a6268; }
+/* الوضع الداكن للوحة نفسها */
+body.dark-mode #style-options-panel { background-color: #343a40; border-color: #495057; color: #f8f9fa; }
+body.dark-mode .options-tabs-nav { border-bottom-color: #495057; }
+body.dark-mode .options-tabs-nav li { color: #adb5bd; }
+body.dark-mode .options-tabs-nav li:hover { background-color: #495057; }
+body.dark-mode .options-tabs-nav li.active { background-color: #343a40; border-color: #495057 #495057 #343a40; color: #e9ecef; }
+body.dark-mode .options-tab-pane h4 { color: #e9ecef; border-bottom-color: #495057; }
+body.dark-mode .options-tab-pane .control-item span { color: #f8f9fa; }
+body.dark-mode #font-family-select { background: #495057; border-color: #6c757d; color: #f8f9fa; }
+body.dark-mode .font-size-controls button { background: #495057; border-color: #6c757d; color: #f8f9fa; }
+body.dark-mode .font-size-controls button:hover { background: #5a6268; }
+body.dark-mode #current-font-size { background: #6c757d; border-color: #adb5bd; color: #f8f9fa; }
+body.dark-mode .color-swatch { border-color: #6c757d; }
+body.dark-mode .color-swatch.active { border-color: #f8f9fa; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4); }
+body.dark-mode #reset-all-options { background-color: #495057; }
+body.dark-mode #reset-all-options:hover { background-color: #5a6268; }
+/* --- End Style Options Panel CSS --- */
+
+/* --- CSS للتحكم في الشريط الجانبي وتوسيع المحتوى (مُعدّل لبلوجر) --- */
+/* تأكد من مطابقة المحددات لقالبك */
+#main-wrapper { width: 70%; float: right; padding: 0 15px; box-sizing: border-box; transition: width 0.3s ease, margin 0.3s ease, padding 0.3s ease; }
+#sidebar-wrapper { width: 30%; float: left; padding: 0 15px; box-sizing: border-box; transition: opacity 0.3s ease, width 0.3s ease, padding 0.3s ease, margin 0.3s ease, visibility 0.3s ease; opacity: 1; visibility: visible; }
+body.sidebar-is-hidden #main-wrapper { width: 100%; float: none; padding-left: 15px; padding-right: 15px; margin-left: 0; margin-right: 0; }
+body.sidebar-is-hidden #sidebar-wrapper { width: 0; opacity: 0; visibility: hidden; padding: 0; margin: 0; border: none; overflow: hidden; }
+.clearfix::after { content: ""; display: table; clear: both; }
+/* --- نهاية CSS للشريط الجانبي --- */
+
+/* --- CSS لتخطيط أعمدة .post-home (مُعدّل لبلوجر ويعتمد على حالة الشريط الجانبي) --- */
+/* تأكد من مطابقة المحددات لقالبك */
+/* المحدد الشائع لحاوية المقالات في بلوجر */
+.blog-posts { display: flex; flex-wrap: wrap; gap: 20px; }
+/* إذا كان قالبك لا يستخدم .post-home، قد تحتاج لتطبيق هذا على .post-outer أو عنصر مشابه */
+.post-home { height: 300px; overflow: hidden; position: relative; box-sizing: border-box; margin: 0; background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color);
+  /* --- الحالة الافتراضية (عمودان عندما الشريط الجانبي ظاهر) --- */
+  flex-basis: calc(50% - 10px); }
+/* يطبق فقط عندما يحتوي body على الكلاس sidebar-is-hidden */
+body.sidebar-is-hidden .blog-posts .post-home {
+  /* --- الحالة عند إخفاء الشريط الجانبي (3 أعمدة) --- */
+  flex-basis: calc(33.333% - 13.333px); }
+/* --- نهاية CSS لأعمدة .post-home --- */
+
+/* */ /* End CSS */
