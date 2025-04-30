@@ -353,7 +353,7 @@ a.a7la7-comment::before { content: "\f044"; }
 
 /* --- Ads --- */
 .firstad { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); height: 300px; left: 12px; overflow: hidden; position: absolute; width: 318px; } /* Use variable */
-.adsunderf { float: right; margin-bottom: 20px; width: 649px; }
+.adsunderf { float: right; margin-bottom: 20px; width: auto; }
 .adsun1 { float: right; } .adsun2 { float: left; }
 .adsunderf span { background-color: var(--widget-bg-color); box-shadow: 0 0 0 1px var(--widget-border-color); display: block; height: 250px; overflow: hidden; padding: 8px; width: 300px; } /* Use variable */
 
